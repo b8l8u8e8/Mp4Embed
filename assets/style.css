@@ -3,6 +3,30 @@
   width:100%;
   max-width:100%;
 }
+.ty-mp4-lines{
+  position:absolute;
+  top:8px;
+  left:8px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  z-index:3;
+}
+.ty-mp4-line{
+  border:1px solid rgba(255,255,255,.4);
+  background:rgba(0,0,0,.55);
+  color:#fff;
+  font-size:12px;
+  line-height:1;
+  padding:6px 10px;
+  border-radius:999px;
+  cursor:pointer;
+}
+.ty-mp4-line.is-active{
+  background:#fff;
+  color:#000;
+  border-color:#fff;
+}
 .ty-mp4-embed video{
   width:100%;
   height:auto;
@@ -22,5 +46,6 @@
   cursor:pointer;
   border-radius:8px;
   user-select:none;
+  z-index:2;
 }
 .ty-mp4-overlay.hidden{ display:none; }

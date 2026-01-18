@@ -1,6 +1,3 @@
-# Mp4Embed
-一个极简的 Typecho 插件，用短代码插入 MP4 视频，**默认自适应页面宽度**、**不自动播放**，**点击后开始播放**。
-=======
 # Mp4Embed (Typecho 插件)
 
 一个极简的 Typecho 插件，用短代码插入 MP4 视频，**默认自适应页面宽度**、**不自动播放**，**点击后开始播放**。
@@ -31,12 +28,15 @@
   [mp4 src="https://example.com/video.mp4" poster="https://example.com/cover.jpg"]
   ```
 
-> 仅支持 `.mp4`，默认不会自动播放，点击覆盖层后设置 `src` 并开始播放；视频宽度自适应容器。
-
-## 备注
-
-- 如果你不需要覆盖层，想直接显示原生播放器，只需把短代码替换逻辑改为输出：
-  ```html
-  <video src="..." controls preload="metadata" playsinline webkit-playsinline style="width:100%;height:auto;"></video>
+- 多线路（使用 `|` 分隔）：
   ```
-  （可自行按需修改 `Plugin.php` 的 `buildHtml` 方法。）
+  [mp4]https://a.com/1.mp4|https://b.com/2.mp4[/mp4]
+  ```
+
+- 多线路 + 封面（可选）：
+  ```
+  [mp4 src="https://a.com/1.mp4|https://b.com/2.mp4" poster="https://example.com/cover.jpg"]
+  ```
+
+> 仅支持 `.mp4`，默认不会自动播放，点击覆盖层后开始播放；视频宽度自适应容器。  
+> 多线路会显示“线路 1/2/...”，顺序与填写顺序一致。首次点击播放时按顺序自动检测可用线路，成功后不再自动检测，之后可手动切换线路。
